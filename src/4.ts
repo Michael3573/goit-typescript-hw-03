@@ -6,20 +6,6 @@ class Key {
   }
 }
 
-// class Person {
-//   private key: Key;
-
-//   constructor(key: Key) {
-//     this.key = key;
-//   }
-
-//   getKey(): Key {
-//     return this.key;
-//   }
-// }
-
-// Скорочена ініціалізація коду вище:
-
 class Person {
   constructor(private key: Key) {}
 
@@ -28,39 +14,11 @@ class Person {
   }
 }
 
-// abstract class House {
-//   protected door: boolean;
-//   protected key: Key;
-//   protected tenants: Person[];
-
-//   constructor(key: Key) {
-//     this.door = false;
-//     this.key = key;
-//     this.tenants = [];
-//   }
-
-//   abstract openDoor(key: Key): void;
-
-//   comeIn(person: Person): void {
-//     if (this.door) {
-//       this.tenants.push(person);
-//       console.log(`${person.getKey()} прийшов(ла) до будинку.`);
-//     } else {
-//       console.log("Двері закриті. Неможливо зайти.");
-//     }
-//   }
-// }
-
-// Скорочена ініціалізація коду вище:
-
 abstract class House {
-  protected door = false;
-  protected readonly key: Key;
+  protected door: boolean = false;
   protected tenants: Person[] = [];
 
-  constructor(key: Key) {
-    this.key = key;
-  }
+  constructor(protected key: Key) {}
 
   abstract openDoor(key: Key): void;
 
